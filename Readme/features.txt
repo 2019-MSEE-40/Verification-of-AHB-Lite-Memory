@@ -1,0 +1,7 @@
+
+    Full support for AMBA 3 AHB-Lite protocol
+    Fully parameterized
+    User-defined address and byte-aligned data widths supported
+    Configurable memory depth, limited only by target technology capability
+    Technology-specific memory cells instantiated automatically
+    Combinatorial or registered data output
