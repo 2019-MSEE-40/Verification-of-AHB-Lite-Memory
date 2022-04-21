@@ -1,0 +1,43 @@
+`include "trans.sv"
+
+class Generator1;
+mailbox #(trans)one;
+trans value;
+int rep_count;
+
+function new (mailbox #(trans)one )
+this.one = one;
+end function
+
+task single_write_burst ();
+value= new;
+value.randomize();
+this.HADDR= HADDR;
+one.put(value);
+endtask
+
+task 4_write_Increment_burst ();
+value= new;
+value.randomize();
+this.HADDR= HADDR;
+one.put(value);
+repeat (3)
+for (int i=1; i< 3; i=i+1) begin
+this.HADDR=HADDR+1;
+end
+endtask
+
+task 8_write_Increment_burst ();
+endtask
+
+task 16_write_Increment_burst ();
+endtask
+
+task single_read_burst();
+endtask
+
+task 4_read_Increment_burst ();
+endtask
+
+
+end class;
